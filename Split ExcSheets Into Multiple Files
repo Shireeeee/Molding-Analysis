@@ -1,0 +1,19 @@
+1. 右键点击第一个sheet
+2. 点击【查看代码】
+3. 点击插入【插入】
+4. 点击【模块】
+5. 在弹出的模块代码粘贴拆分代码
+  
+ Private Sub 分拆工作表()
+ Dim sht As Worksheet
+ Dim Mybook As Workbook
+ Set Mybook = ActiveWorkbook
+ For Each sht In Mybook.Sheets
+     sht.Copy
+     ActiveWorkbook.SaveAs Filename:=Mybook.Path & "\" & sht.Name, FileFormat:=xlOpenXMLWorkbook
+     ActiveWorkbook.Close
+     Next
+     MsgBox "文件已经被拆分完毕"
+End Sub
+
+6. 点击【运行】-【运行子过程/子窗体】
